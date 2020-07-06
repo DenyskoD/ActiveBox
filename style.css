@@ -42,6 +42,17 @@ p{
     left : 0;
     z-index: 10;
 }
+.header.fixed {
+    height: auto;
+    position: fixed;
+    background-color: #31344e;
+}
+.header.fixed .header__inner {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    border-bottom: 0;
+}
 
 .header__inner {
     display : flex;
@@ -386,9 +397,17 @@ p{
     overflow: hidden;
     background-color: #53354a;
 }
+.comments__slider {
+    height: 500px;
+    overflow: hidden;
+}
+.comments__slider .slick-initialized {
+    height: auto;
+}
 .comments__item {
     display : flex;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 .comments__img {
     width: 50%;
@@ -423,6 +442,42 @@ p{
     font-weight: bold;
     text-transform: uppercase;
     color : #fff;
+}
+
+/* slick-slider */
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0 0 15px;
+    list-style: none;
+    width: 50%;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+.slick-dots li {
+    padding: 0 5px;
+}
+.slick-dots button {
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    border: 0;
+    padding: 0;
+    font-size: 0;
+    color: transparent;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.slick-dots button:focus {
+    outline: 0;
+}
+.slick-dots .slick-active button {
+    opacity: 1;
 }
 
 /* Download */
@@ -517,7 +572,24 @@ p{
     
     /* nav */
     .nav {
-        display : none;
+
+        display : none; 
+        width: 100%;
+        position: absolute;
+        text-align: right;
+        background-color: #31344e;
+        top: 100%;
+        right: 0;
+        flex-direction: column;
+
+    }
+
+    .nav.show {
+        display: flex;
+    }
+
+    .nav__link {
+        padding: 9px 15px;
     }
     /* burger */
     .burger {
